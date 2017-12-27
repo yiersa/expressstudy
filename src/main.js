@@ -7,6 +7,8 @@ import VueResource from 'vue-resource'
 import 'mint-ui/lib/style.css'
 import 'assets/css/common.css'
 import 'assets/css/swiper.min.css'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 import Home from './views/Home'
 import MovieDetail from './views/MovieDetail'
@@ -17,39 +19,53 @@ import NoData from './views/NoData'
 import App from './App'
 import NotFound from './components/404'
 import LazyLoad from './components/lazyload'
+import MainPage from './views/MainPage'
 
 Vue.use(LazyLoad)
 Vue.use(Mint)
 Vue.use(VueRouter)
 Vue.use(VueResource)
+Vue.use(ElementUI)
 
-const routes = [{
-  path : '/',
-  component : Home
-},{
-  path : '/mv',
-  component : Home
-},{
-  path : '/movie/detail/:id',
-  name: 'detail',
-  component : MovieDetail
-},{
-  path : '/cinema',
-  component : Cinema
-},{
-  path : '/cinema/detail/:id',
-  name: 'cdetail',
-  component: CinemaDetail
-},{
-  path : '/me',
-  component : Me
-},{
-  path : '/no',
-  component : NoData
-},{
-  path : '*',
-  component : NotFound
-}];
+const routes = [
+  {
+    path: '/',
+    component: Home
+  },
+  {
+    path: '/mv',
+    component: Home
+  },
+  {
+    path: '/movie/detail/:id',
+    name: 'detail',
+    component: MovieDetail
+  },
+  {
+    path: '/cinema',
+    component: Cinema
+  },
+  {
+    path: '/cinema/detail/:id',
+    name: 'cdetail',
+    component: CinemaDetail
+  },
+  {
+    path: '/me',
+    component: Me
+  },
+  {
+    path: '/no',
+    component: NoData
+  },
+  {
+    path: '/main',
+    component: MainPage
+  },
+  {
+    path: '*',
+    component: NotFound
+  }];
 
 const router = new VueRouter({
   // mode: 'history',  history模式
@@ -76,4 +92,5 @@ var app = new Vue({
   router,
   store,
   ...App,
+  render: h => h(App)
 });

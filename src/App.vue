@@ -3,7 +3,7 @@
     <div class="main" :style="{height: '100%'}">
       <router-view></router-view>
     </div>
-     <footer-nav :showNav="showNav"></footer-nav>
+     <!--<footer-nav :showNav="showNav"></footer-nav>-->
   </div>
 </template>
 
