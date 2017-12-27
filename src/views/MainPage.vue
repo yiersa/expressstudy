@@ -1,14 +1,15 @@
 <template>
-  <div style="display: flex;flex-direction: column;text-align: center;">
+  <div style="display: flex;justify-content: space-between;max-width: 80%;">
+    <div id="logo">
+      hhhh
+    </div>
     <div>
-      <div style="text-align: center;margin: 20px 0;">
-        <el-button type="primary" plain>热门</el-button>
-        <el-button type="primary" plain>最新</el-button>
-        <el-button type="primary" plain>我的</el-button>
-      </div>
-      <div>
-        hhhhhh
-      </div>
+      <el-tabs v-model="activeName" @tab-click="handleClick">
+      <el-tab-pane label="用户管理" name="first">用户管理1</el-tab-pane>
+      <el-tab-pane label="配置管理" name="second">配置管理2</el-tab-pane>
+      <el-tab-pane label="角色管理" name="third">角色管理3</el-tab-pane>
+      <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿4</el-tab-pane>
+    </el-tabs>
     </div>
   </div>
 
@@ -20,6 +21,7 @@ import { mapMutations } from 'vuex'
 export default {
 	data () {
 		return {
+      activeName: 'second'
 		}
 	},
 	components: {
@@ -28,7 +30,10 @@ export default {
 		...mapMutations([
 		  'pushLoadStack',
 		  'completeLoad'
-		])
+		]),
+    handleClick(tab, event) {
+      console.log(tab, event);
+    }
 	},
 	created () {
 	}
@@ -36,12 +41,6 @@ export default {
 </script>
 
 <style>
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
+
 </style>
 
